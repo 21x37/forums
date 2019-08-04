@@ -48,10 +48,10 @@ class Header extends React.Component {
           <input className="header__search" type='text' onBlur={this.onBlur} onChange={this.onChange} placeholder="🔍"/>
           <SearchList to=''/>
           <div className="header__nav">
-            <button style={{ color: 'white' }} className="button button--link" onClick={this.onClick}><p className='nav__text'>Notifications</p></button>
-            <Link to='/messages'><button style={{ color: 'white' }} ><p className='nav__text'>Messages</p></button></Link>
-            <Link to={`/${this.props.auth.username.toLowerCase()}`}><button style={{ color: 'white' }} className=""><p className='nav__text'>Profile</p></button></Link>
-            <button style={{ color: 'white' }} className="button button--link" onClick={this.props.startLogout}><p className='nav__text'>Logout</p></button>
+            <button style={{ WebkitAppearance: 'none', color: 'white' }} className="button button--link" onClick={this.onClick}><p className='nav__text'>Notifications</p></button>
+            <Link to='/messages'><button style={{ WebkitAppearance: 'none', color: 'white' }} ><p className='nav__text'>Messages</p></button></Link>
+            <Link to={`/${this.props.auth.username.toLowerCase()}`}><button style={{ WebkitAppearance: 'none', color: 'white' }} className=""><p className='nav__text'>Profile</p></button></Link>
+            <button style={{ WebkitAppearance: 'none', color: 'white' }} className="button button--link" onClick={this.props.startLogout}><p className='nav__text'>Logout</p></button>
           </div>
           <Notification isHidden={this.state.isHidden}/>
         </div>
