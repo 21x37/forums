@@ -12,8 +12,6 @@ export const startSendMessage = (message) => {
         firebase.database().ref(`/users/${message.authorId}/messages/${message.recipient.username}`).push(message);
         firebase.database().ref(`/users/${message.recipient.databaseId}/messages/${message.authorUsername}`).push(message);
 
-        console.log(`/users/${message.authorId}/messages/${message.recipient.username}`);
-        console.log(`/users/${message.recipient.databaseId}/messages/${message.authorUsername}`);
 
 
         dispatch(fetchMessages(message));
@@ -29,9 +27,14 @@ const setMessage = (payload) => ({
 
 export const fetchMessages = (message) => {
     return (dispatch) => {
+        console.log('fetch messsage')
         firebase.database().ref(`/users/${message.authorId}/messages/${message.recipient.username}`)
             .on('value', (snapshot) => {    
-                let messages = snapshot.val();
+                let messages = [];
+
+                snapshot.forEach((childSnapshot) => {
+                    messages.push({ ...childSnapshot.val(), databaseId: childSnapshot.key })
+                })
 
                 dispatch(setMessage(messages));
             })
@@ -71,19 +74,32 @@ export const setUserMessagesList = async ({ userId }) => {
             firebase.database().ref(`/users`).on('value', (snapshot) => {
 
                 const lastMessage = Object.values(messagesSnapshot.val()[user]).reverse()[0].message
+                const unRead = Object.values(messagesSnapshot.val()[user]).reverse()[0].unRead
+                const messageId = Object.keys(messagesSnapshot.val()[user]).reverse()[0]
+                console.log(messageId);
 
                 snapshot.forEach((childSnapshot) => {
                     if (childSnapshot.val().username === user) {
                         userMessagesList.push({
+
                             ...childSnapshot.val(),
-                            lastMessage
+                            lastMessage,
+                            databaseId: childSnapshot.key,
+                            messageId,
+                            unRead
+
                         });
-                    }
-                })
-            })
-        })
-       
-    })
+                    };
+                });
+            });
+        });
+    });
 
     return userMessagesList;
+}
+
+export const startReadMessage = ({ message }) => {
+    return () => {
+        firebase.database().ref(`/users/${message.auth.databaseId}/messages/${message.username}/${message.messageId}`).update({ unRead: false })
+    }
 }

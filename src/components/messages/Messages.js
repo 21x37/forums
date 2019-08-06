@@ -2,7 +2,7 @@ import React from 'react';
 import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { setUserMessagesList } from '../../actions/messages';
+import { setUserMessagesList, startReadMessage } from '../../actions/messages';
 import { startSearchUsers, startClearUsers } from '../../actions/search';
 import SearchList from '../search/SearchList';
 
@@ -38,17 +38,27 @@ class Messages extends React.Component {
         const query = e.target.value;
         this.props.startSearchUsers(query)
     }
+    onClick(userMessages) {
+        const message = {
+            ...userMessages,
+            auth: this.props.auth
+        }
+
+        console.log(message);
+        this.props.startReadMessage({ message }) 
+    }
     render() {
         return (        
             <div>
                 {this.state.users.map((user) => {
+                    console.log(user);
                     return (
-                        <Link style={{ textDecoration: 'none' }} to={`/messages/${user.username}`} key={uuid()}>
-                            <div className='messages__container'>
-                                <img className='messages__profile__picture' src={user.profilePicture} style={{ width: '75px', height: '75px' }}/>
-                                <p className='messages__lastMessage'>{user.lastMessage.length > 15 ? this.lastMessageSubString(user.lastMessage) : user.lastMessage}</p>
-                                <p className='messages__username'>{user.username.length > 7 ? this.userNameSubString(user.username) : user.username}</p>
-                            </div>
+                        <Link style={{ textDecoration: 'none' }} to={`/messages/${user.username}`} key={uuid()} onClick={() => this.onClick(user)}>
+                                <div className={`messages__container ${user.unRead ? 'messages_unread' : '' }`}>
+                                    <img className='messages__profile__picture' src={user.profilePicture} style={{ width: '75px', height: '75px' }}/>
+                                    <p className='messages__lastMessage'>{user.lastMessage.length > 15 ? this.lastMessageSubString(user.lastMessage) : user.lastMessage}</p>
+                                    <p className='messages__username'>{user.username.length > 7 ? this.userNameSubString(user.username) : user.username}</p>
+                                </div>
                         </Link>
                     )
                 })}
@@ -59,11 +69,12 @@ class Messages extends React.Component {
 
 const mapStateToProps = (state) => ({
     auth: state.auth
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
     startSearchUsers: (query) => dispatch(startSearchUsers(query)),
-    startClearUsers: () => dispatch(startClearUsers())
+    startClearUsers: () => dispatch(startClearUsers()),
+    startReadMessage: (message) => dispatch(startReadMessage(message))
   });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Messages);
