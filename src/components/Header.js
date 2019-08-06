@@ -43,15 +43,15 @@ class Header extends React.Component {
       <div className="content-container">
         <div className="header__content">
           <Link className="header__title" to="/dashboard">
-            <img className='header__logo' src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/-443/-2090465443_0b5ceab0-78ec-46c2-ac52-9a887b7fa0ea.png?cb=1564886476'/>
+            <img className='header__logo' src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/-801/-2088371801_9892911a-c466-4a69-b7c2-85e2eaffa5a6.png?cb=1564973977'/>
           </Link>
           <input className="header__search" type='text' onBlur={this.onBlur} onChange={this.onChange} placeholder="🔍"/>
           <SearchList to=''/>
           <div className="header__nav">
-            <button style={{ WebkitAppearance: 'none', color: 'white' }} className="button button--link" onClick={this.onClick}><p className='nav__text'>Notifications</p></button>
-            <Link to='/messages'><button style={{ WebkitAppearance: 'none', color: 'white' }} ><p className='nav__text'>Messages</p></button></Link>
-            <Link to={`/${this.props.auth.username.toLowerCase()}`}><button style={{ WebkitAppearance: 'none', color: 'white' }} className=""><p className='nav__text'>Profile</p></button></Link>
-            <button style={{ WebkitAppearance: 'none', color: 'white' }} className="button button--link" onClick={this.props.startLogout}><p className='nav__text'>Logout</p></button>
+            <button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className="button button--link" onClick={this.onClick}><p className='nav__text'>Notifications</p></button>
+            <Link to='/messages'><button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className='button--link'><p className='nav__text'>Messages</p></button></Link>
+            <Link to={`/${this.props.auth.username.toLowerCase()}`}><button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className="button--link"><p className='nav__text'>Profile</p></button></Link>
+            <button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className="button button--link" onClick={this.props.startLogout}><p className='nav__text'>Logout</p></button>
           </div>
           <Notification isHidden={this.state.isHidden}/>
         </div>

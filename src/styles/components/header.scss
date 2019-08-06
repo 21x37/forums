@@ -1,5 +1,5 @@
 .content-container {
-    background: #3C6E71;
+    background: #FFFFFF;
     box-shadow: 3px 5px rgba(0, 0, 0, 0.075);
     margin-bottom: 20px;
     margin-top: -6%;
@@ -10,7 +10,7 @@
 
 .header__logo {
     margin-bottom: -12px;
-    width: 100px;
+    width: 70px;
     padding-bottom: 20px;
     position: relative;
     top: 4px;
@@ -46,9 +46,10 @@
 }
 
 .header__nav {
+    background: none;
     color: #F9DEC9;
     font-size: 145%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     margin-top: 2.5px;
     text-align: center;
 }
@@ -56,4 +57,9 @@
 .nav__text {
     margin-right: 10px;
     -webkit-appearance: none;
+}
+
+.button--link {
+    background: none;
+    border: none;
 }

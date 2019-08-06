@@ -1,0 +1,34 @@
+.messages__container {
+    background: #F8F9FA;
+    border-radius: 3px;
+    height: 99px;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 80%;
+}
+
+.messages__profile__picture {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.messages__username {
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 24px;
+    position: relative;
+    left: 35%;
+    top: -98px;
+    width: 200px;
+    text-decoration: none;
+}
+
+.messages__lastMessage {
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-weight: 300;
+    left: 105px;
+    margin-top: -40px;
+    position: relative;
+}

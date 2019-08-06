@@ -1,0 +1,66 @@
+.profile__container {
+    background: #F8F9FA;
+    border-radius: 4px;
+    box-shadow: 5px 8px rgba(0, 0, 0, 0.068);
+    margin: 0 auto;
+    margin-top: 50px;   
+    width: 80%;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.profile__picture {
+    background: #ffffff;
+    height: 130px;
+    margin-top: 20px;
+    width: 130px;
+    padding: 5px;
+}
+
+.profile__username {
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 40px;
+    margin: 0;
+}
+
+.profile__upvotes {
+    color: #0079D3;
+    margin-top: -5px;
+    font-size: 30px;
+}
+
+// profile list
+
+.profile__posts--container {
+    background: #F8F9FA;
+    box-shadow: 5px 8px rgba(0, 0, 0, 0.068);
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 25px;
+    text-align: center;
+    width: 80%;
+}
+
+.profile__text {
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 15px;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.profile__list--upvotes {
+    color: #0079D3;
+    margin-left: 120px;
+}
+
+.profile__message {
+    background: #0079D3;
+    color: white;
+    height: 30px;
+    position: relative;
+    top: -25px;
+    width: 100px;
+}
+

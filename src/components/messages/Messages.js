@@ -16,6 +16,8 @@ class Messages extends React.Component {
 
         this.onBlur = this.onBlur.bind(this);
         this.onChange = this.onChange.bind(this);
+        this.userNameSubString = this.userNameSubString.bind(this);
+        this.lastMessageSubString = this.lastMessageSubString.bind(this);
     }
     async componentWillMount() {
         const users = await setUserMessagesList({ userId: this.props.auth.databaseId })
@@ -26,6 +28,12 @@ class Messages extends React.Component {
           this.props.startClearUsers();
         }, 150)
     }
+    userNameSubString(string) {
+        return `${string.substring(0, 7)}...`;
+    }
+    lastMessageSubString(string) {
+        return `${string.substring(0,15)}...`
+    }
     onChange(e) {
         const query = e.target.value;
         this.props.startSearchUsers(query)
@@ -35,11 +43,11 @@ class Messages extends React.Component {
             <div>
                 {this.state.users.map((user) => {
                     return (
-                        <Link to={`/messages/${user.username}`} key={uuid()}>
-                            <div>
-                                <img src={user.profilePicture} style={{ width: '75px', height: '75px' }}/>
-                                <p>{user.lastMessage}</p>
-                                <p>{user.username}</p>
+                        <Link style={{ textDecoration: 'none' }} to={`/messages/${user.username}`} key={uuid()}>
+                            <div className='messages__container'>
+                                <img className='messages__profile__picture' src={user.profilePicture} style={{ width: '75px', height: '75px' }}/>
+                                <p className='messages__lastMessage'>{user.lastMessage.length > 15 ? this.lastMessageSubString(user.lastMessage) : user.lastMessage}</p>
+                                <p className='messages__username'>{user.username.length > 7 ? this.userNameSubString(user.username) : user.username}</p>
                             </div>
                         </Link>
                     )

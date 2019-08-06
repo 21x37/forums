@@ -45,20 +45,33 @@ export const startSetUser = (queriedUsername) => {
             users = snapshot
         })
 
-        users.forEach((user) => {
+
+        users.forEach( (user) => {
             if (user.val().username && queriedUsername) {
                 if (user.val().username.toLowerCase() === queriedUsername.toLowerCase()) {
-                    getUserPosts({ user: user.val() })
 
-                    getUpvotes(queriedUsername).then((upvotes) => {
-                        const userObj = {
-                            ...user.val(),
-                            upvotes
-                        }
-                        let queriedUser = _.omit(userObj, 'notifications');
-                        queriedUser = _.omit(queriedUser, 'messages');
-                        dispatch(setUser(queriedUser));
-                    })
+
+
+                    getUserPosts({ user: user.val() })
+                        .then((userPosts) => {
+
+                            getUpvotes(queriedUsername).then((upvotes) => {
+                                const userObj = {
+                                    ...user.val(),
+                                    upvotes,
+                                    userPosts
+                                }
+                                let queriedUser = _.omit(userObj, 'notifications');
+                                queriedUser = _.omit(queriedUser, 'messages');
+                                dispatch(setUser(queriedUser));
+                            })
+
+
+
+                        });
+
+
+
     
                 }
             }
@@ -72,38 +85,73 @@ const addUserPosts = (payload) => ({
 })
 
 
-export const getUserPosts = ({ user }) => {
-    return (dispatch) => {
-        const userPosts = [];
-        firebase.database().ref(`/forums`).on('value', (snapshot) => {
 
+const getUserPosts = ({ user }) => {
+    return new Promise((resolve, reject) => {
+        const userPosts = [];
+
+        firebase.database().ref(`/forums`).on('value', (snapshot) => {
             const forumKeys = Object.keys(snapshot.val());
             const categorizedForumPosts = []
-
+    
             forumKeys.forEach((key) => {
-
+    
                 const categorizedForumPostsKeys = Object.keys(snapshot.val()[key])
                 const categorizedForumPostsValues = Object.values(snapshot.val()[key]);
-
+    
                 for (let i = 0; i < categorizedForumPostsValues.length ; i++) {
                     const id = categorizedForumPostsKeys[i]
                     const value = categorizedForumPostsValues[i]
-
+    
                     categorizedForumPosts.push({ ...value, id })
                 }
             })
-
+    
             categorizedForumPosts.forEach((post) => {
-
+    
                 if (post.author.uid === user.uid) {
                     userPosts.push(post);
                 }
             })
-
-
-            console.log(categorizedForumPosts);
-
+            resolve(userPosts);
         })
-        dispatch(addUserPosts(userPosts));
-    }
+    })
 }
+
+
+
+
+
+// export const getUserPosts = ({ user }) => {
+//     console.log('fired');
+//     return (dispatch) => {
+//         const userPosts = [];
+//         firebase.database().ref(`/forums`).on('value', (snapshot) => {
+
+//             const forumKeys = Object.keys(snapshot.val());
+//             const categorizedForumPosts = []
+
+//             forumKeys.forEach((key) => {
+
+//                 const categorizedForumPostsKeys = Object.keys(snapshot.val()[key])
+//                 const categorizedForumPostsValues = Object.values(snapshot.val()[key]);
+
+//                 for (let i = 0; i < categorizedForumPostsValues.length ; i++) {
+//                     const id = categorizedForumPostsKeys[i]
+//                     const value = categorizedForumPostsValues[i]
+
+//                     categorizedForumPosts.push({ ...value, id })
+//                 }
+//             })
+
+//             categorizedForumPosts.forEach((post) => {
+
+//                 if (post.author.uid === user.uid) {
+//                     userPosts.push(post);
+//                 }
+//             })
+//         })
+
+//         dispatch(addUserPosts(userPosts));
+//     }
+// }

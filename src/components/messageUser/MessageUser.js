@@ -10,7 +10,8 @@ class MessageUser extends React.Component {
         this.state = {
             recipient: '',
             message: '',
-            date: moment().format('MMMM Do YYYY')
+            date: moment().format('MMMM Do YYYY'),
+            unRead: true
         }
 
         this.onClick = this.onClick.bind(this);
