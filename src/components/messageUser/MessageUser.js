@@ -10,7 +10,7 @@ class MessageUser extends React.Component {
         this.state = {
             recipient: '',
             message: '',
-            date: moment().format('MMMM Do YYYY'),
+            date: moment(),
             unRead: true
         }
 
@@ -25,6 +25,7 @@ class MessageUser extends React.Component {
 
         const message = {
             ...this.state,
+            date: this.state.date.valueOf(),
             recipient,
             authorId: this.props.auth.databaseId,
             authorUsername: this.props.auth.username

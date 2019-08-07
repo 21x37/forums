@@ -7,12 +7,10 @@ export const startSendMessage = (message) => {
             message.recipient.messages = null;
             message.recipient.notifications = null;
         }
-
+        // TODO: Remove the specific message and reset the message.
 
         firebase.database().ref(`/users/${message.authorId}/messages/${message.recipient.username}`).push(message);
         firebase.database().ref(`/users/${message.recipient.databaseId}/messages/${message.authorUsername}`).push(message);
-
-
 
         dispatch(fetchMessages(message));
     }
@@ -76,7 +74,10 @@ export const setUserMessagesList = async ({ userId }) => {
                 const lastMessage = Object.values(messagesSnapshot.val()[user]).reverse()[0].message
                 const unRead = Object.values(messagesSnapshot.val()[user]).reverse()[0].unRead
                 const messageId = Object.keys(messagesSnapshot.val()[user]).reverse()[0]
-                console.log(messageId);
+                const recipientUsername = Object.values(messagesSnapshot.val()[user]).reverse()[0].recipient.username
+                const date = Object.values(messagesSnapshot.val()[user]).reverse()[0].date
+
+                console.log(Object.values(messagesSnapshot.val()[user]).reverse()[0].date);
 
                 snapshot.forEach((childSnapshot) => {
                     if (childSnapshot.val().username === user) {
@@ -86,7 +87,9 @@ export const setUserMessagesList = async ({ userId }) => {
                             lastMessage,
                             databaseId: childSnapshot.key,
                             messageId,
-                            unRead
+                            unRead,
+                            recipientUsername,
+                            date
 
                         });
                     };
@@ -94,7 +97,6 @@ export const setUserMessagesList = async ({ userId }) => {
             });
         });
     });
-
     return userMessagesList;
 }
 

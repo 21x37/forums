@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
 import { fetchMessages } from '../../actions/messages';
@@ -11,9 +12,6 @@ class MessageUserList extends React.Component {
     componentWillMount() {
         this.props.fetchMessages({ recipient: this.props.recipient, authorId: this.props.auth.databaseId })
     }
-    componentWillReceiveProps() {
-
-    }
     render() {
 
         const messagesArr = this.props.messages ? Object.values(this.props.messages).reverse() : [];
@@ -22,8 +20,9 @@ class MessageUserList extends React.Component {
             <div>
                 {messagesArr.map((message) => {
                     return (
-                        <div key={uuid()}>
+                        <div key={uuid()} className='message__userList__container'>
                             <p>{message.message}</p>
+                            <p>{moment(message.date).format('MMMM Do, YYYY')}</p>
                             <h3>{message.authorUsername}</h3>
                         </div>
                     )
