@@ -1,3 +1,75 @@
-.message__userList__container {
-    color: black;
+.message__userList__container:last-child {
+    border-radius: 4px;
+    margin-top: 15px;
+}
+
+.message__user__input__footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.message__user__input__container {
+    background: #ffffff;
+    padding: 20px;
+}
+
+.message__user__button {
+    align-items: stretch;
+    background: #0079D3;
+    border: none;
+    color: #FFF;
+    display: center;
+    height: 30px;
+    padding: 5px;
+    width: 60px;
+}
+
+.message__user__input {
+    border: none;
+    border-radius: 2px;
+    background:rgb(242, 242, 242);
+    height: 30px;
+    margin-right: 20px;
+    width: 70%;
+}
+
+.messages__author {
+    background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 150%);
+    color: #FFF;
+    float: right;
+    margin-right: 10px;
+    text-align: right;
+    width: 150px;
+}
+
+
+.messages__recipient {
+    background: #eee;
+    color: #000;
+    float: left;
+    margin-left: 10px;
+    width: 150px;
+}
+
+.messages__author__text {
+    font-size: 20px;
+    margin-bottom: -10px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
 }

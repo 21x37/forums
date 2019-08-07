@@ -35,9 +35,11 @@ class MessageUser extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input type='text' onChange={this.onChange}/>
-                <button onClick={this.onClick}>Send</button>
+            <div className='message__user__input__footer'>
+                <div className='message__user__input__container'>
+                    <input className='message__user__input' type='text' onChange={this.onChange}/>
+                    <button className='message__user__button' onClick={this.onClick}>Send</button>
+                </div>
             </div>
         );
     };

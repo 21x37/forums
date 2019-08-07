@@ -18,12 +18,15 @@ class MessageUserList extends React.Component {
 
         return (
             <div>
-                {messagesArr.map((message) => {
+                {messagesArr.reverse().map((message) => {
+                    console.log(message)
                     return (
-                        <div key={uuid()} className='message__userList__container'>
-                            <p>{message.message}</p>
-                            <p>{moment(message.date).format('MMMM Do, YYYY')}</p>
-                            <h3>{message.authorUsername}</h3>
+                        <div key={uuid()} className='clearfix'>
+                            <div className={`message__userList__container ${message.authorUsername === this.props.auth.username ? 'messages__author' : 'messages__recipient'}`}>
+                                <p className={`${message.authorUsername === this.props.auth.username ? 'messages__author__text' : 'messages__recipient__text'}`}>{message.message}</p>
+                                <p>{moment(message.date).format('MMMM Do, YYYY')}</p>
+                                <h3>{message.authorUsername}</h3>
+                            </div>
                         </div>
                     )
                 })}
