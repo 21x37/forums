@@ -13,7 +13,6 @@ class MessageUser extends React.Component {
             date: moment(),
             unRead: true
         }
-
         this.onClick = this.onClick.bind(this);
         this.onChange = this.onChange.bind(this);
     }
@@ -22,7 +21,6 @@ class MessageUser extends React.Component {
     }
     onClick() {
         const recipient = this.props.recipient
-
         const message = {
             ...this.state,
             date: this.state.date.valueOf(),

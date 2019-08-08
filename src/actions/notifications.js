@@ -13,7 +13,6 @@ const addNotifcation = (payload) => ({
 export const startAddNotification = ({ userId, notification }) => {
     return async (dispatch) => {
         let notificationsArr = [];
-        console.log(`/users/${userId}/notifications`);
         await firebase.database().ref(`/users/${userId}/notifications`).on('value', (snapshot) => {
             if (snapshot.val()) {
                 notificationsArr = snapshot.val();

@@ -25,7 +25,6 @@ const setMessage = (payload) => ({
 
 export const fetchMessages = (message) => {
     return (dispatch) => {
-        console.log('fetch messsage')
         firebase.database().ref(`/users/${message.authorId}/messages/${message.recipient.username}`)
             .on('value', (snapshot) => {    
                 let messages = [];
@@ -77,7 +76,6 @@ export const setUserMessagesList = async ({ userId }) => {
                 const recipientUsername = Object.values(messagesSnapshot.val()[user]).reverse()[0].recipient.username
                 const date = Object.values(messagesSnapshot.val()[user]).reverse()[0].date
 
-                console.log(Object.values(messagesSnapshot.val()[user]).reverse()[0].date);
 
                 snapshot.forEach((childSnapshot) => {
                     if (childSnapshot.val().username === user) {
