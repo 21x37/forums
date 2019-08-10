@@ -4,6 +4,7 @@ Post threads and catch up with friends on tattle.
 
 ## Getting Started
 
+http://tattle-draft.herokuapp.com/
 
 These instructions will get you a copy of the project up and running on your local machine.
 
