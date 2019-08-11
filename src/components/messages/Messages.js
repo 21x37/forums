@@ -52,7 +52,6 @@ class Messages extends React.Component {
         return (        
             <div>
                 {this.state.users.map((user) => {
-                    console.log(user);
                     return (
                         <Link style={{ textDecoration: 'none' }} to={`/messages/${user.username}`} key={uuid()} onClick={() => this.onClick(user)}>
                                 <div className={`messages__container ${user.unRead && user.recipientUsername === this.props.auth.username ? 'messages_unread' : '' }`}>

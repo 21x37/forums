@@ -3,6 +3,10 @@
     margin-top: 15px;
 }
 
+.message__userList__wrapper {
+    padding-bottom: 90px;
+}
+
 .message__user__input__footer {
     position: fixed;
     left: 0;
@@ -41,7 +45,7 @@
     float: right;
     margin-right: 10px;
     text-align: right;
-    width: 150px;
+    width: 165px;
 }
 
 
@@ -50,14 +54,41 @@
     color: #000;
     float: left;
     margin-left: 10px;
-    width: 150px;
+    width: 180px;
 }
 
 .messages__author__text {
+    font-family: 'Roboto';
+    font-weight: 300;
     font-size: 20px;
     margin-bottom: -10px;
     margin-left: 20px;
+    margin-right: 9px;
+    margin-top: 5px;
     text-align: left;
+}
+
+.messages__recipient__text {
+    font-family: 'Roboto';
+    font-weight: 300;
+    font-size: 20px;
+    margin-bottom: -10px;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.messages__author__username {
+    margin-bottom: 7px;
+    margin-left: 1px;
+    padding-bottom: 1px;
+}
+
+.messages__recipient__username {
+    margin-left: 10px;
+    margin-top: 15px;
+    padding-bottom: 1px;
 }
 
 .clearfix:after {
