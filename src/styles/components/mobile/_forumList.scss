@@ -1,0 +1,38 @@
+.forumList__wrapper {
+    color: black;
+    width: 100%;
+    position: relative;
+    top: 10px;
+}
+
+.forumList__flex {
+    border-bottom: 2px solid rgb(218, 216, 216);
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    
+}
+
+.forumList__back__button {
+    background: #F8F9FA;
+    height: 30px;
+    margin-left: 8px;
+    width: 70px;
+    text-align: center;
+}
+
+.forumList__search {
+    height: 30px;
+    width: 175px;
+    padding: 0 0 0 10px;
+}
+
+.forumList__newPost__button {
+    background: #0079D3;
+    border: none;
+    color: #FFF;
+    height: 30px;
+    margin-right: 20px;
+    width: 70px;
+}
+

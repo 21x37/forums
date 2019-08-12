@@ -20,18 +20,13 @@ class ForumPage extends React.Component {
     };
     render() {
         return (
-            <div>
-                <Link to='/dashboard'><p>Back</p></Link>
-                <input type='text' placeholder='search' 
-                onChange={this.onChange}
-                />
-                
-                
-                <Link to={`/t/${this.state.forumName}/post/`}>
-                    <button>New Post</button>
-                </Link>
-    
-                <p>This is the forum page.</p>
+            <div className='forumList__wrapper'>
+                <div className='forumList__flex'>
+                    <Link to='/dashboard'><button className='forumList__back__button'>Back</button> </Link>                
+                    <input className='forumList__search' type='text' placeholder='search' 
+                    onChange={this.onChange}/>
+                    <Link to={`/t/${this.state.forumName}/post/`}><button className='forumList__newPost__button'>New Post</button></Link>
+                </div>
                 <ForumPageList forumName={this.state.forumName}/>
             </div>
         )
