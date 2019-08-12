@@ -16,16 +16,21 @@ class ForumPageList extends React.Component {
     render() {
         return (
             <div>
-                <p>Forum Page List</p>
                 {   
                     this.props.forumList.map((post) => (
-                            <div key={post.author + post.title}>
-                                <Link to={`/t/${this.props.forumName}/${post.id}`}><h2>{post.title}</h2></Link>
-                                {/* TODO: Get author name/username from firebase with uid */}
-                                <p>{post.author.username}</p>
-                                <img src={post.author.profilePicture} style={{ width: '30px', height: '30px' }} />
-                                {/* TODO: Set date when created using moment. */}
-                                <p>{post.date === moment().format('MMMM Do YYYY') ? 'Posted Today' : post.date}</p>
+                            <div className='forumPage__list__post__container' key={post.author + post.title}>
+                                <div className='forumPage__list__wrapper'>
+                                    <Link to={`/t/${this.props.forumName}/${post.id}`}><h2 className='forumPage__list__title'>{post.title}</h2></Link>
+                                    {/* TODO: Get author name/username from firebase with uid */}
+                                    <div className='forumPage__list__profilePicture__username__wrapper'>
+                                        <img className='forumPage__list__profilePicture' src={post.author.profilePicture} style={{ width: '30px', height: '30px' }} />
+                                        <p className='forumPage__list__username'>{post.author.username}</p>
+                                    </div>
+                                    <div className='clearfix'></div>
+
+                                    {/* TODO: Set date when created using moment. */}
+                                    <p className='forumPage__list__date'>{post.date === moment().format('MMMM Do YYYY') ? 'Posted Today' : post.date}</p>
+                                </div>
                             </div>
                         )
                     )

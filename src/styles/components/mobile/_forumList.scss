@@ -36,3 +36,40 @@
     width: 70px;
 }
 
+// individual posts
+
+.forumPage__list__post__container {
+    background: rgb(250, 250, 250);
+    border: none;
+    border-bottom: 1px rgb(224, 224, 224) solid;
+    border-top: 1px rgb(221, 221, 221) solid;
+    border-radius: 3px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.forumPage__list__post__wrapper {
+    position: relative;
+}
+
+.forumPage__list__profilePicture__username__wrapper {
+    float: right;
+    margin-bottom: -30px;
+    margin-right: 40px;
+    text-align: center;
+}
+
+.forumPage__list__profilePicture {
+    margin-bottom: -10px;
+}
+
+.forumPage__list__username {
+}
+
+.forumPage__list__title {
+    margin-left: 40px;
+}
+
+.forumPage__list__date {
+    margin-left: 40px;
+}
