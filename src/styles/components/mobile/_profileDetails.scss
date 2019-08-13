@@ -35,10 +35,12 @@
 .profile__posts--container {
     background: #F8F9FA;
     box-shadow: 5px 8px rgba(0, 0, 0, 0.068);
+    display: flex;
     height: 50px;
+    justify-content: space-between;
     margin: 0 auto;
     margin-top: 25px;
-    text-align: center;
+    text-decoration: none;
     width: 80%;
 }
 
@@ -47,12 +49,13 @@
     font-family: 'Roboto';
     font-size: 15px;
     display: inline-block;
-    margin-right: 20px;
+    margin-left: 20px;
+    text-align: left;
 }
 
 .profile__list--upvotes {
     color: #0079D3;
-    margin-left: 120px;
+    margin-right: 20px;
 }
 
 .profile__message {

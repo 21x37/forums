@@ -29,7 +29,6 @@
 
 .forumList__newPost__button {
     background: #0079D3;
-    border: none;
     color: #FFF;
     height: 30px;
     margin-right: 20px;
@@ -56,6 +55,7 @@
     float: right;
     margin-bottom: -30px;
     margin-right: 40px;
+    margin-top: -3px;
     text-align: center;
 }
 
@@ -71,5 +71,6 @@
 }
 
 .forumPage__list__date {
+    color: #858D95;
     margin-left: 40px;
 }

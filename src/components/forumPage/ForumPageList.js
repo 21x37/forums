@@ -18,9 +18,10 @@ class ForumPageList extends React.Component {
             <div>
                 {   
                     this.props.forumList.map((post) => (
+                        <Link style={{ color: '#0079D3', textDecoration: 'none'}} to={`/t/${this.props.forumName}/${post.id}`}>
                             <div className='forumPage__list__post__container' key={post.author + post.title}>
                                 <div className='forumPage__list__wrapper'>
-                                    <Link to={`/t/${this.props.forumName}/${post.id}`}><h2 className='forumPage__list__title'>{post.title}</h2></Link>
+                                    <h2 className='forumPage__list__title'>{post.title}</h2>
                                     {/* TODO: Get author name/username from firebase with uid */}
                                     <div className='forumPage__list__profilePicture__username__wrapper'>
                                         <img className='forumPage__list__profilePicture' src={post.author.profilePicture} style={{ width: '30px', height: '30px' }} />
@@ -32,6 +33,7 @@ class ForumPageList extends React.Component {
                                     <p className='forumPage__list__date'>{post.date === moment().format('MMMM Do YYYY') ? 'Posted Today' : post.date}</p>
                                 </div>
                             </div>
+                        </Link>
                         )
                     )
                 }

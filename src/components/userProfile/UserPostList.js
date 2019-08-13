@@ -28,9 +28,9 @@ class UserPostList extends React.Component {
             <div>
                 {this.props.user.userPosts && this.props.user.userPosts.map((post) => {
                     return (
-                        <Link to={`/t/${post.forumName}/${post.id}`} key={uuid()}>
+                        <Link style={{ textDecoration: 'none' }} to={`/t/${post.forumName}/${post.id}`} key={uuid()}>
                             <div className='profile__posts--container'>
-                                <p className='profile__text'>{post.title}</p>
+                                <p className='profile__text'>{post.title.length > 25 ? `${post.title.substring(0, 25)}...` : post.title }</p>
                                 <p className='profile__text profile__list--upvotes'>{post.upVotes ? `${post.upVotes.length}   🏆`  : '0 🏆'}</p>
                             </div>
                         </Link>
