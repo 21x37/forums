@@ -43,12 +43,15 @@ class IndividualComment extends React.Component {
                     <p className='comment__upvotes__amount'>{this.props.comment.upvotes.length}</p>
                     <button className='comment__upvotes__button' onClick={this.onClick}>UpVote</button>
                 </div>
-                    <p>{this.props.comment.comment}</p>
+                    <p className='comment__text'>{this.props.comment.comment}</p>
             </div>
-                    <p>{this.props.comment.date}</p>
             <Link to={`/${this.props.comment.author.username}`}>
+                <div className='comment__user__container'>
+                    <p>{this.props.comment.date}</p>
                     <img src={this.props.comment.author.profilePicture} style={{ width: '50px', height: '50px'}}/>
                     <p>{this.props.comment.author.username}</p>
+                </div>
+                <div className='clearfix'></div>
             </Link>
             {this.props.comment.author.uid === this.props.auth.uid && <button onClick={this.onDelete}>Delete</button> }
 

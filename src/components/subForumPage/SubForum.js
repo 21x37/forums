@@ -83,19 +83,21 @@ class SubForum extends React.Component {
                     </div>
                 </div>
                     {this.props.currentSubForum.author && 
-                    <Link to={`/${this.props.currentSubForum.author.username}`}>
+                    <Link style={{ color: 'black' }} to={`/${this.props.currentSubForum.author.username}`}>
                         <div className='subForum__user'>
-                            <img src={this.props.currentSubForum.author.profilePicture} style={{ width: '50px', height: '50px' }} />
-                            <p>{this.props.currentSubForum.author.username}</p>
+                            <p className='subForum__date'>{this.props.currentSubForum.date}</p>
+                            <div className='subForum__comment__container'>
+                                <img className='subForum__profilePicture' src={this.props.currentSubForum.author.profilePicture}/>
+                                <p className='subForum__username'>{this.props.currentSubForum.author.username}</p>
+                            </div>
                         </div>
                         <div className='clearfix'></div>
                     </Link>
                     }
                     {this.props.auth.uid === this.props.authorID && <button className='subForum__delete__button' onClick={this.onDelete}>Delete</button>}
-
-                    <CommentList forumName={this.state.forumName} subForumId={this.state.subForumId}/>
+                    </div>
+                <CommentList forumName={this.state.forumName} subForumId={this.state.subForumId}/>
                     <CommentForm subForumAuthorId={this.props.currentSubForum.author ? this.props.currentSubForum.author.databaseId : '' } forumName={this.state.forumName} subForumId={this.state.subForumId} title={this.props.currentSubForum.title}/>
-                </div>
             </div>
         )
     }
