@@ -64,26 +64,38 @@ class SubForum extends React.Component {
     }
     renderForum() {
         return (
-            <div>
+            <div className='subForum__wrapper'>
                 <Link to={`/t/${this.state.forumName}`}>Back</Link>
-                    {this.props.auth.uid === this.props.authorID && <button onClick={this.onDelete}>Delete</button>}
+                <div className='subForum__container'>
+                
+                <div className='subForum__title__container'>
+                    <h1 className='subForum__title__title'>{this.props.currentSubForum.title}</h1>
+                    <p>{this.props.currentSubForum.date}</p>
+                </div>
+                <div className='subForum__flex'>
+                    <div className='subForum__upvotes'>
+                        <p className='subForum__upvotes__amount'>{this.props.currentSubForum.upVotes.length}</p>
+                        <button onClick={this.onClick}>UpVote</button>
+                    </div>
+
+                    <div className='subForum__text'>
+                        <p>{this.props.currentSubForum.text}</p>
+                    </div>
+                </div>
                     {this.props.currentSubForum.author && 
                     <Link to={`/${this.props.currentSubForum.author.username}`}>
-                        <div>
-                            <p>{this.props.currentSubForum.author.username}</p>
+                        <div className='subForum__user'>
                             <img src={this.props.currentSubForum.author.profilePicture} style={{ width: '50px', height: '50px' }} />
+                            <p>{this.props.currentSubForum.author.username}</p>
                         </div>
+                        <div className='clearfix'></div>
                     </Link>
                     }
-                
-                    <h1>{this.props.currentSubForum.title}</h1>
-                    <p>{this.props.currentSubForum.text}</p>
-                    <p>{this.props.currentSubForum.upVotes.length}</p>
-                    
-                    <button onClick={this.onClick}>UpVote</button>
+                    {this.props.auth.uid === this.props.authorID && <button className='subForum__delete__button' onClick={this.onDelete}>Delete</button>}
 
                     <CommentList forumName={this.state.forumName} subForumId={this.state.subForumId}/>
-                <CommentForm subForumAuthorId={this.props.currentSubForum.author ? this.props.currentSubForum.author.databaseId : '' } forumName={this.state.forumName} subForumId={this.state.subForumId} title={this.props.currentSubForum.title}/>
+                    <CommentForm subForumAuthorId={this.props.currentSubForum.author ? this.props.currentSubForum.author.databaseId : '' } forumName={this.state.forumName} subForumId={this.state.subForumId} title={this.props.currentSubForum.title}/>
+                </div>
             </div>
         )
     }

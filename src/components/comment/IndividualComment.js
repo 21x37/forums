@@ -37,16 +37,21 @@ class IndividualComment extends React.Component {
     }
     render() {
         return (
-        <div key={this.props.comment.comment}>
-            <Link to={`/${this.props.comment.author.username}`}>
-                    {this.props.comment.author.uid === this.props.auth.uid && <button onClick={this.onDelete}>Delete</button> }
+        <div className='comment__container' key={this.props.comment.comment}>
+            <div className='comment__flex'>
+                <div className='comment__upvotes'>
+                    <p className='comment__upvotes__amount'>{this.props.comment.upvotes.length}</p>
+                    <button className='comment__upvotes__button' onClick={this.onClick}>UpVote</button>
+                </div>
                     <p>{this.props.comment.comment}</p>
+            </div>
                     <p>{this.props.comment.date}</p>
-                    <p>{this.props.comment.author.username}</p>
+            <Link to={`/${this.props.comment.author.username}`}>
                     <img src={this.props.comment.author.profilePicture} style={{ width: '50px', height: '50px'}}/>
-                    <p>{this.props.comment.upvotes.length}</p>
+                    <p>{this.props.comment.author.username}</p>
             </Link>
-            <button onClick={this.onClick}>UpVote</button>
+            {this.props.comment.author.uid === this.props.auth.uid && <button onClick={this.onDelete}>Delete</button> }
+
         </div>
 
         );

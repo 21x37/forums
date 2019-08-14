@@ -1,0 +1,51 @@
+.subForum__wrapper {
+    margin: 0 auto;
+}
+
+.subForum__container {
+    background: red;
+    color: black;
+}
+
+.subForum__title__container {
+    background: blue;
+    font-family: 'Roboto';
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-top: 1px;
+}
+
+.subForum__title__title {
+    margin-bottom: -5px;
+    margin-top: 5px;
+}
+
+.subForum__flex {
+    display: flex;
+}
+
+.subForum__upvotes__amount {
+    margin-left: 20px;
+}
+
+.subForum__upvotes {
+    margin-left: 10px;
+    margin-top: 13px;
+}
+
+.subForum__text {
+    font-size: 18px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin-top: -5px;
+    padding-left: 5px;
+    width: 80%;
+}
+
+.subForum__user {
+    float: right;
+}
+
+.subForum__delete__button {
+    margin-left: 2px;
+}
