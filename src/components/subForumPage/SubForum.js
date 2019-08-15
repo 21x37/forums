@@ -65,7 +65,7 @@ class SubForum extends React.Component {
     renderForum() {
         return (
             <div className='subForum__wrapper'>
-                <Link to={`/t/${this.state.forumName}`}>Back</Link>
+                <Link style={{ textDecoration: 'none', color: '#0079D3' }} className='subForum__back__button' to={`/t/${this.state.forumName}`}>Back</Link>
                 <div className='subForum__container'>
                 
                 <div className='subForum__title__container'>

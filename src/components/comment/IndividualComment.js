@@ -45,11 +45,13 @@ class IndividualComment extends React.Component {
                 </div>
                     <p className='comment__text'>{this.props.comment.comment}</p>
             </div>
-            <Link to={`/${this.props.comment.author.username}`}>
+            <Link style={{ color: 'black' }} to={`/${this.props.comment.author.username}`}>
                 <div className='comment__user__container'>
-                    <p>{this.props.comment.date}</p>
-                    <img src={this.props.comment.author.profilePicture} style={{ width: '50px', height: '50px'}}/>
-                    <p>{this.props.comment.author.username}</p>
+                    <p className='comment__date'>{this.props.comment.date}</p>
+                    <div className='comment__user__flex'>
+                        <img className='comment__user__profilePicture' src={this.props.comment.author.profilePicture}/>
+                        <p className='comment__username'>{this.props.comment.author.username}</p>
+                    </div>
                 </div>
                 <div className='clearfix'></div>
             </Link>
