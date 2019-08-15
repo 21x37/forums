@@ -6,12 +6,16 @@ import { Link } from 'react-router-dom';
 const NotificationsPage = ({notifications}) => (
     <div>
         {notifications ? notifications.map((notification) => (
-           <Link key={uuid()} to={notification.url}>
-                <div>
-                    <p>{notification.message}</p>
-                    <p>{notification.date}</p>
-                    <img style={{ width: '100px', height: '100px'}}src={notification.likedBy.profilePicture}/>
-                    <p>{notification.likedBy.username}</p>
+           <Link style={{ textDecoration: 'none', color: 'black' }} key={uuid()} to={notification.url}>
+                <div className='notificationPage__container'>
+                    <div className='notificationPage__wrapper'>
+                        <p className='notificationPage__date'>{notification.date}</p>
+                        <div className='notificationPage__flex'>
+                            <img className='notificationPage__profilePicture' src={notification.likedBy.profilePicture}/>
+                            <p>{notification.message}</p>
+                        </div>
+                        <p className='notificationPage__username'>{notification.likedBy.username}</p>
+                    </div>
                 </div>
             </Link>
             )) : 

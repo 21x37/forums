@@ -65,7 +65,7 @@ class CommentForm extends React.Component {
     render() {
         return (
             <div className='commentForm__container'>
-                <p>{this.state.error}</p>
+                <p className='commentForm__error'>{this.state.error}</p>
                 <input className='commentForm__input' type='text' onChange={this.onChange} value={this.state.comment}/>
                 <button onClick={this.onSubmit}>Comment</button>
             </div>

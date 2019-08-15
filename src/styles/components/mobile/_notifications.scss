@@ -1,0 +1,33 @@
+.notificationPage__container {
+    background: #ffffff;
+    margin: 0 auto;
+    margin-top: 10px;
+    position: relative;
+    top: 10px;
+    width: 95%;
+}
+
+.notificationPage__flex {
+    display: flex;
+}
+
+.notificationPage__profilePicture {
+    width: 50px;
+    height: 50px;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+.notificationPage__date {
+    margin-bottom: 1px;
+}
+
+.notificationPage__wrapper {
+    margin-left: 15px;
+}
+
+.notificationPage__username {
+    margin-left: 10px;
+    margin-top: 2px;
+    padding-bottom: 3px;
+}
