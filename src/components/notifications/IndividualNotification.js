@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const IndividualNotification = ({ notification }) => (
     <Link style={{ textDecoration: 'none' }} to={notification.url}>
-        <div className='individual__notification__container' hidden={notification.unread}>
+        <div className='individual__notification__container' hidden={!notification.unread}>
             <div className='individual__notification__wrapper'>
                 <div className='individual__notification__flex'>
                     <img className='individual__notification__picture' src={notification.likedBy.profilePicture}/>
