@@ -55,11 +55,6 @@ class PostForum extends React.Component {
         } else {
             this.setState({ error: noFieldErrors })
         }
-
-
-
-
-
     }
     render() {
         return (

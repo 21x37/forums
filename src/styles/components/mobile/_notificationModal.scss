@@ -1,0 +1,71 @@
+.notification__container {
+    position: relative;
+}
+
+.notification__wrapper {
+    background: rgb(230, 230, 230);
+    position: absolute;
+    padding-top: 0;
+    width: 320px;
+    z-index: 5;
+}
+
+.notification__title__wrapper {
+    background: #ffffff;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    margin-top: -7px;
+    width: 97.5%;
+}
+
+.notification__title {
+    color: #000;
+    font-family: 'Roboto';
+    font-size: 18px;
+    margin-left: 15px;
+    margin-top: 3px;
+}
+
+.see__all__notifications__wrapper {
+    background: #ffffff;
+    font-size: 14px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    width: 97.5%;
+}
+
+// individual notification
+
+.individual__notification__container {
+    background: #ffffff;
+    border-radius: 2px;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 95%;
+}
+
+.individual__notifcation__wrapper {
+
+}
+
+.individual__notification__flex {
+    display: flex;
+}
+
+.individual__notification__picture {
+    height: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 50px;
+}
+
+.individual__notification__date {
+    margin-left: 10px;
+    margin-top: 2px;
+    padding-bottom: 2px;
+}
+
+.individual__notification__message {
+    font-size: 14px;
+}
+
