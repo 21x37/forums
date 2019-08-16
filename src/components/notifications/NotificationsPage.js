@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom';
 
 const NotificationsPage = ({notifications}) => (
     <div>
-        {notifications ? notifications.map((notification) => (
+        {notifications ? notifications.map((notification, index) => (
            <Link style={{ textDecoration: 'none', color: 'black' }} key={uuid()} to={notification.url}>
                 <div className='notificationPage__container'>
+                    {console.log(index)}
+
                     <div className='notificationPage__wrapper'>
                         <p className='notificationPage__date'>{notification.date}</p>
                         <div className='notificationPage__flex'>

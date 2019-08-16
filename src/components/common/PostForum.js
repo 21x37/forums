@@ -63,20 +63,25 @@ class PostForum extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Link to={`/t/${this.state.forumName}`}>Back</Link>
+            <div className='post__forum__container'>
+                <div className='post__forum__buttons__flex'>
+                    <Link className='subForum__back__button' to={`/t/${this.state.forumName}`}><button className='forumList__back__button'>Back</button></Link>
+                    <button className='forumList__newPost__button post__button' onClick={this.onSubmit}>Post</button>
+                </div>
                 <p>{this.state.error}</p>
                 <input
+                className='post__forum__input'
                 name='title'
                 type='text'
                 placeholder='title'
                 onChange={this.onChange}
                 />
+                <br/>
                 <textarea
+                className='post__forum__textarea'
                 name='text'
                 onChange={this.onChange}
                 />
-                <button onClick={this.onSubmit}>Post</button>
             </div>
         );
     };
