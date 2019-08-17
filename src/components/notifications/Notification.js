@@ -12,9 +12,9 @@ class Notification extends React.Component {
         return (
             <div className='notification__container' hidden={this.props.isHidden}>
                 <div className='notification__wrapper'>
-                    <div className='notification__title__wrapper'>
+                    {/* <div className='notification__title__wrapper'>
                         <h1 className='notification__title'>Notifications</h1>
-                    </div>
+                    </div> */}
                     {this.props.notifications && this.props.notifications.map((notification) => {
                         return (
                             <IndividualNotification key={uuid()} notification={notification}/>
