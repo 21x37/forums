@@ -14,7 +14,12 @@ body {
 }
 
 button {
+  border: none;
   cursor: pointer;
+}
+
+input {
+  border: none;
 }
 
 button:disabled {
