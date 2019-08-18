@@ -12,6 +12,17 @@ class MessageUserList extends React.Component {
     componentWillMount() {
         this.props.fetchMessages({ recipient: this.props.recipient, authorId: this.props.auth.databaseId })
     }
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+    
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom() {
+        this.el.scrollIntoView({ behavior: 'instant' });
+    }
     render() {
 
         const messagesArr = this.props.messages ? Object.values(this.props.messages).reverse() : [];
@@ -30,6 +41,7 @@ class MessageUserList extends React.Component {
                         </div>
                     )
                 })}
+                <div ref={el => { this.el = el; }} />
             </div>
         )
     }

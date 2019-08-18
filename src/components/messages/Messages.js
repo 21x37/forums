@@ -34,7 +34,7 @@ class Messages extends React.Component {
     }
     lastMessageSubString(string) {
         return `${string.substring(0,15)}...`
-    }
+    }   
     onChange(e) {
         const query = e.target.value;
         this.props.startSearchUsers(query)
