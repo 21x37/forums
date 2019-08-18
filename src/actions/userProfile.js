@@ -17,7 +17,6 @@ const getUpvotes = (username) => {
                             upvotes += post.val().upVotes.length;
                         }
                     }
-
                     const userPost = post.val();
                     if (userPost.comments) {
                         const postComments = Object.values(userPost.comments);

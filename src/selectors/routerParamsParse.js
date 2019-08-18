@@ -1,9 +1,10 @@
 const routerParamsParse = (subForumNames) => {
     let string = ''
-        subForumNames.forEach((param) => {
+    subForumNames.forEach((param) => {
+        
         string += param + '|'
     })
-    return string
+    return string;
 }
 
 export default routerParamsParse;

@@ -36,7 +36,6 @@ class MessageUserList extends React.Component {
                             <div className={`message__userList__container ${message.authorUsername === this.props.auth.username ? 'messages__author' : 'messages__recipient'}`}>
                                 <p className={`${message.authorUsername === this.props.auth.username ? 'messages__author__text' : 'messages__recipient__text'}`}>{message.message}</p>
                                 <h3 className={`${message.authorUsername === this.props.auth.username ? 'messages__author__username' : 'messages__recipient__username'}`}>{message.authorUsername}</h3>
-                                {/* <p className={`${message.authorUsername === this.props.auth.username ? 'messages__author__date' : 'messages__recipient__date'}`}>{moment(message.date).format('MMMM Do, YYYY')}</p> */}
                             </div>
                         </div>
                     )
