@@ -1,0 +1,69 @@
+.logIn__container {
+    background: #DAE0E6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+.logIn__button {
+    border-radius: 3px;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.26);
+    height: 40px;  
+    margin-right: 10px;
+    width: 90px;
+}
+
+.logIn__title {
+    color: #0079D3;
+    font-family: 'Courgette', cursive;
+    font-size: 30px;
+}
+
+.logIn__text {
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.26);
+    color: #ffffff;
+    font-family: 'Roboto';
+    margin-right: 90px;
+    padding: 0 10px;
+}
+
+.register {
+    background: #0079D3;
+    color: #ffffff; 
+}
+
+.logIn {
+    border: 2px solid #0079D3;
+}
+
+.logIn__error {
+    color: #000000; 
+    position: absolute;
+}
+
+.logIn::hover {
+    background: #0079D3;
+}
+
+.logIn__form__wrapper {
+    top: 61vh;
+    display: block;
+    position: absolute;
+    margin-left: 4px;
+}
+
+.logIn__input {
+    border: 2px solid #0079D3;
+    box-shadow: 3px 3px rgba(0, 0, 0, 0.26);
+    display: block;
+    font-family: 'Roboto';
+    font-size: 14px;
+    height: 30px;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 180px;
+    padding: 0px 10px;
+}

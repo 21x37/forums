@@ -11,7 +11,8 @@ class LoginPage extends React.Component {
         super(props);
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            logInFormHidden: true
         }
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -24,16 +25,34 @@ class LoginPage extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        this.props.startLogin(this.state);
+        if (this.state.email && this.state.password && !this.state.logInFormHidden) {
+            this.props.startLogin(this.state);
+
+        } else {
+            this.setState({ logInFormHidden: false })
+        }
     }
     render() {
         return (
-            <div>
-                <UserCredentialsForm onChange={this.onChange} onSubmit={this.onSubmit} buttonText="Login"/>
-                <p>{this.props.errorMessage}</p>
-                <Link to='/register'> 
-                    <button>Register</button>
-                </Link>
+            <div className='logIn__container'>
+                <div className='logIn__wrapper'>
+
+
+                    <h1 className='logIn__title'>Tattle</h1>
+                    
+                    <h3 className='logIn__text register'>Join Tattle today.</h3>
+                    <Link to='/register'> 
+                        <button className='logIn__button register'>Register</button>
+                    </Link>
+                    <button className='logIn__button logIn' onClick={this.onSubmit}>Login</button>
+                    <p className='logIn__error'>{this.props.errorMessage}</p>
+                    {!this.state.logInFormHidden &&                     
+                    <div className='logIn__form__wrapper'>
+                        <input className='logIn__input' name='email' type='text' onChange={this.onChange} placeholder='email'/> 
+                        <input className='logIn__input' name='password' type='password' onChange={this.onChange} placeholder='password'/> 
+                    </div>
+                    }
+                </div>
             </div>
         );
     };

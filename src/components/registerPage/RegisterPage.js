@@ -30,12 +30,18 @@ class RegisterPage extends React.Component {
     render() {
         return (
             <div>
-                <UserCredentialsForm onChange={this.onChange} onSubmit={this.onSubmit} buttonText="Register"/>
+                <div>
+                    <h1 className='logIn__title registerPage'>Tattle</h1>
+                    <form>
+                        <input className='logIn__input' name='email' type='text' onChange={this.onChange} placeholder='email'/>
+                        <input className='logIn__input' name='password' type='password' onChange={this.onChange} placeholder='password'/>
+                    </form>
+                </div>
+                <div className='registerPage__flex'>
+                    <button onClick={this.onSubmit} className='logIn__button register registerPage registerPageButton'>Register</button>
+                </div>
                 <p>{this.props.errorMessage}</p>
-                <Link
-                to='/'
-                onClick={this.props.startClearAuthError()}
-                >
+                <Link to='/' onClick={this.props.startClearAuthError()}>
                     <p>Go back to login screen.</p>
                 </Link>
             </div>

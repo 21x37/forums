@@ -8,7 +8,6 @@ const setForumNames = (payload) => ({
 export const startSetForumNames = () => {
     return (dispatch) => {
         firebase.database().ref(`/forumNames`).on('value', (snapshot) => {
-            console.log(snapshot.val());
            const forumNames = Object.values(snapshot.val()); 
 
            dispatch(setForumNames(forumNames));
