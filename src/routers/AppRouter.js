@@ -9,7 +9,6 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import ModalRoute from './ModalRoute';
 import RegisterPage from '../components/registerPage/RegisterPage';
-import ForumRoutes from './ForumRoutes';
 import ForumPage from '../components/forumPage/ForumPage';
 import PostForum from '../components/common/PostForum';
 import SubForum from '../components/subForumPage/SubForum';
