@@ -12,6 +12,8 @@ const errorSelector = (error) => {
             return "Request timed out. Check your internet connection."
         case "auth/weak-password":
             "Password should be at least 6 characters"
+        case "auth/argument-error":
+            return "Please enter a email and password"
         default:
             return error.message
     }

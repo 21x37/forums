@@ -40,7 +40,10 @@
 }
 
 .logIn__error {
-    color: #000000; 
+    color: red;
+    left: 0;
+    text-align: center;
+    width: 100%;
     position: absolute;
 }
 

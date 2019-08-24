@@ -2,11 +2,18 @@
     text-align: center;
 }
 
-.registerPageButton {
-    margin-top: 17px;
-}
 
 .registerPage__flex {
     display: flex;
     justify-content: center;
+    margin-left: 11px;
+    margin-top: 25px;
+}
+
+.register__error {
+    color: red;
+    margin-top: -20px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
 }

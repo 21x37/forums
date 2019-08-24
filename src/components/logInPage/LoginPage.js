@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import UserCredentialsForm from '../common/UserCredentialsForm';
 import { connect } from 'react-redux';
 import { startLogin } from '../../actions/auth';
+import { clearAuthError } from '../../actions/errors';
 import errorSelector from '../../selectors/errorSelector';
 
 
@@ -25,7 +26,7 @@ class LoginPage extends React.Component {
     onSubmit(e) {
         e.preventDefault();
 
-        if (this.state.email && this.state.password && !this.state.logInFormHidden) {
+        if (this.state.email && this.state.password || !this.state.logInFormHidden) {
             this.props.startLogin(this.state);
 
         } else {
@@ -42,7 +43,7 @@ class LoginPage extends React.Component {
                     
                     <h3 className='logIn__text register'>Join Tattle today.</h3>
                     <Link to='/register'> 
-                        <button className='logIn__button register'>Register</button>
+                        <button className='logIn__button register' onClick={() => this.props.clearAuthError()}>Register</button>
                     </Link>
                     <button className='logIn__button logIn' onClick={this.onSubmit}>Login</button>
                     <p className='logIn__error'>{this.props.errorMessage}</p>
@@ -66,8 +67,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        startLogin: state => dispatch(startLogin(state))
-    }
+        startLogin: state => dispatch(startLogin(state)),
+        clearAuthError: () => dispatch(clearAuthError())
+}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

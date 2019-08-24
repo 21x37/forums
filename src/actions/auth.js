@@ -12,9 +12,8 @@ export const login = (payload) => ({
 
 export const startLogin = ({ email, password }) => {
   return (dispatch) => {
+    console.log('fired');
     return firebase.auth().signInWithEmailAndPassword(email, password)
-      .then(() => {
-      })
       .catch((error) => {
         dispatch(authError(error))
       });
@@ -35,15 +34,15 @@ export const startLogout = () => {
 // Register Actions
 // -----------
 
-
-
 export const startRegisterUser = ({ email, password }) => {
   return (dispatch) => {
-    return firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then(() => {
-      })
-      .catch((error) => {
-        dispatch(authError(error))
-      });
+    try {
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .catch((error) => {
+          dispatch(authError(error));
+        })
+    } catch (error) {
+      dispatch(authError(error))
+    }
   };
 };

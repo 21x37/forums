@@ -3,7 +3,7 @@ import UserCredentialsForm from '../common/UserCredentialsForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { startRegisterUser } from '../../actions/auth';
-import { startClearAuthError } from '../../actions/errors';
+import { clearAuthError } from '../../actions/errors';
 import errorSelector from '../../selectors/errorSelector';
 
 
@@ -32,18 +32,18 @@ class RegisterPage extends React.Component {
             <div>
                 <div>
                     <h1 className='logIn__title registerPage'>Tattle</h1>
+                    <p className='register__error'>{this.props.errorMessage}</p>
                     <form>
                         <input className='logIn__input' name='email' type='text' onChange={this.onChange} placeholder='email'/>
                         <input className='logIn__input' name='password' type='password' onChange={this.onChange} placeholder='password'/>
                     </form>
                 </div>
                 <div className='registerPage__flex'>
+                    <Link className='register__back__wrapper' to='/' onClick={() => this.props.clearAuthError()}>
+                        <button className='logIn__button logIn register__back'>Back</button>
+                    </Link>
                     <button onClick={this.onSubmit} className='logIn__button register registerPage registerPageButton'>Register</button>
                 </div>
-                <p>{this.props.errorMessage}</p>
-                <Link to='/' onClick={this.props.startClearAuthError()}>
-                    <p>Go back to login screen.</p>
-                </Link>
             </div>
         );
     };
@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
     startRegisterUser: state => dispatch(startRegisterUser(state)),
-    startClearAuthError: () => dispatch(startClearAuthError())
+    clearAuthError: () => dispatch(clearAuthError())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(RegisterPage);
