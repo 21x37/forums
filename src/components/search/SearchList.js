@@ -7,9 +7,9 @@ const SearchList = ({ searchUsers, to }) => (
       {searchUsers && searchUsers.map((user) => {
           return (
               <div className='individual__search__container' key={user.profilePicture}>
-                <Link className='individual__search__link' to={`${to}/${user.username}`}>
+                <Link style={{ color: 'black' }} className='individual__search__link' to={`${to}/${user.username}`}>
                     <img className='individual__search__image' src={user.profilePicture} style={{ width: '50px', height: '50px' }}/>
-                    <p className='indivdual__search__username' style={{ color: 'white' }}>{user.username}</p>
+                    <p style={{ color: 'black'}} className='indivdual__search__username'>{user.username}</p>
                 </Link>
               </div>
           )

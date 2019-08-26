@@ -1,23 +1,26 @@
 .search__wrapper {
     margin-top: -10px;
     position: absolute;
-    left: 38.5%;
+    left: 38.8%;
     z-index: 10;
 }
 
 .search__list__container {
-    background: red;
+    background: rgb(245, 245, 245);
     position: relative;
     width: 162px;
     z-index: 5;
 }
 
 .individual__search__container {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    border-radius: 5px;
     display: flex;
     margin-top: 12px;
+    padding-top: 10px;
     padding-bottom: 5px;
 }
+
 
 .individual__search__link {
     color: black;
@@ -30,7 +33,9 @@
 }
 
 .indivdual__search__username {
+    color: #000;
     display: inline;
+    font-family: 'Roboto';
     margin-left: 20px;
     position: relative;
     bottom: 20px;
