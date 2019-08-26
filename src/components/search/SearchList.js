@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const SearchList = ({ searchUsers, to }) => (
-    <div>
+    <div className='search__list__container'>
       {searchUsers && searchUsers.map((user) => {
           return (
-              <div key={user.profilePicture}>
-                <Link to={`${to}/${user.username}`}>
-                    <img src={user.profilePicture} style={{ width: '50px', height: '50px' }}/>
-                    <p style={{ color: 'white' }}>{user.username}</p>
+              <div className='individual__search__container' key={user.profilePicture}>
+                <Link className='individual__search__link' to={`${to}/${user.username}`}>
+                    <img className='individual__search__image' src={user.profilePicture} style={{ width: '50px', height: '50px' }}/>
+                    <p className='indivdual__search__username' style={{ color: 'white' }}>{user.username}</p>
                 </Link>
               </div>
           )

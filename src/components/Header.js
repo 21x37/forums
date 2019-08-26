@@ -46,7 +46,9 @@ class Header extends React.Component {
             <img className='header__logo' src='https://dewey.tailorbrands.com/production/brand_version_mockup_image/-801/-2088371801_9892911a-c466-4a69-b7c2-85e2eaffa5a6.png?cb=1564973977'/>
           </Link>
           <input className="header__search" type='text' onBlur={this.onBlur} onChange={this.onChange} placeholder="🔍"/>
-          <SearchList to=''/>
+          <div className='search__wrapper'>
+            <SearchList to=''/>
+          </div>
           <div className="header__nav">
             <button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className="button button--link" onClick={this.onClick}><p className='nav__text'>Notifications</p></button>
             <Link to='/messages'><button style={{ WebkitAppearance: 'none', color: '#0079D3' }} className='button--link'><p className='nav__text'>Messages</p></button></Link>
